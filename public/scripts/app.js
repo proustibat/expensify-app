@@ -7,7 +7,7 @@ var appRoot = document.querySelector('#app');
 var appData = {
     title: 'Indecision',
     subtitle: 'Don\'t choose',
-    options: []
+    options: ['Item one', 'Item two']
 };
 var onFormSubmit = function onFormSubmit(e) {
     e.preventDefault();
@@ -43,29 +43,21 @@ var render = function render() {
             null,
             appData.options && appData.options.length > 0 ? 'Here are your options' : 'No options'
         ),
-        React.createElement(
-            'p',
-            null,
-            appData.options.length
+        appData.options && appData.options.length > 0 && React.createElement(
+            'button',
+            { onClick: onRemoveAll },
+            'Remove All'
         ),
         React.createElement(
             'ol',
             null,
-            React.createElement(
-                'li',
-                null,
-                'Item one'
-            ),
-            React.createElement(
-                'li',
-                null,
-                'Item two'
-            )
-        ),
-        React.createElement(
-            'button',
-            { onClick: onRemoveAll },
-            'Remove All'
+            appData.options.map(function (value, i) {
+                return React.createElement(
+                    'li',
+                    { key: i },
+                    value
+                );
+            })
         ),
         React.createElement(
             'form',

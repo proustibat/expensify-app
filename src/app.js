@@ -5,7 +5,7 @@ const appRoot = document.querySelector( '#app' );
 const appData = {
     title: 'Indecision',
     subtitle: `Don't choose`,
-    options: []
+    options: [ 'Item one', 'Item two' ]
 };
 const onFormSubmit = e => {
     e.preventDefault();
@@ -28,12 +28,12 @@ const render = () => {
             <h1>{ appData.title }</h1>
             { appData.subtitle && <p>{ appData.subtitle }</p> }
             <p>{ ( appData.options && appData.options.length > 0 ) ? 'Here are your options' : 'No options' }</p>
-            <p>{ appData.options.length }</p>
+            { appData.options && appData.options.length > 0 && <button onClick={onRemoveAll}>Remove All</button> }
             <ol>
-                <li>Item one</li>
-                <li>Item two</li>
+                {
+                    appData.options.map( ( value, i ) => <li key={ i }>{ value }</li> )
+                }
             </ol>
-            <button onClick={onRemoveAll}>Remove All</button>
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
                 <button>Add Option</button>

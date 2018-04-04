@@ -1,0 +1,13 @@
+{
+  "name": "crwdc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1"
+  },
+  "scripts": {
+    "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public"
+  }
+}

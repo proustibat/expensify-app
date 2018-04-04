@@ -4,6 +4,11 @@ console.log('App.js is running!');
 
 var appRoot = document.querySelector('#app');
 
+var appData = {
+    title: 'Here is my JSX title',
+    subtitle: 'Here is my subtitle'
+};
+
 // JSX - Javascript XML
 var template1 = React.createElement(
     'div',
@@ -11,12 +16,12 @@ var template1 = React.createElement(
     React.createElement(
         'h1',
         null,
-        'This is JSX from app.js'
+        appData.title
     ),
     React.createElement(
         'p',
         null,
-        'This is some info'
+        appData.subtitle
     ),
     React.createElement(
         'ol',
@@ -34,23 +39,31 @@ var template1 = React.createElement(
     )
 );
 
+var user = {
+    name: 'Jenni',
+    age: 32,
+    location: 'Paris'
+};
+
 var template2 = React.createElement(
     'div',
     { key: 'template2' },
     React.createElement(
         'h1',
         null,
-        'Jenni'
+        user.name.toUpperCase()
     ),
     React.createElement(
         'p',
         null,
-        'Age: 32'
+        'Age: ',
+        user.age
     ),
     React.createElement(
         'p',
         null,
-        'Location: Paris'
+        'Location: ',
+        user.location
     )
 );
 

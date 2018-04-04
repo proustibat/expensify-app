@@ -22,12 +22,21 @@ const onRemoveAll = () => {
     render();
 };
 
+const onMakeDecision = () => {
+    const randomNumber = Math.floor( Math.random() * appData.options.length );
+    const option = appData.options[ randomNumber ];
+    alert( option );
+};
+
+
+
 const render = () => {
     const template = (
         <div>
             <h1>{ appData.title }</h1>
             { appData.subtitle && <p>{ appData.subtitle }</p> }
             <p>{ ( appData.options && appData.options.length > 0 ) ? 'Here are your options' : 'No options' }</p>
+            <button disabled={ appData.options.length === 0 } onClick={ onMakeDecision }>What should I do?</button>
             { appData.options && appData.options.length > 0 && <button onClick={onRemoveAll}>Remove All</button> }
             <ol>
                 {

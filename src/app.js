@@ -16,6 +16,9 @@ const template1 = (
         </ol>
     </div>
 );
+const appRoot1 = document.querySelector( '#app1' );
+ReactDOM.render( template1, appRoot1 );
+
 
 const user = {
     name: 'Jenni',
@@ -33,37 +36,39 @@ const template2 = (
       { getLocation( user.location ) }
   </div>
 );
+const appRoot2 = document.querySelector( '#app2' );
+ReactDOM.render( template2, appRoot2 );
+
 
 let count = 0;
-
 const addOne = () => {
     console.log( 'addOne' );
     count++;
-    console.log( count );
+    renderCounter();
 };
 const minusOne = () => {
     console.log( 'Minus' );
     count--;
-    console.log( count );
+    renderCounter();
 };
 const reset = () => {
     console.log( 'reset' );
     count = 0;
-    console.log( count );
+    renderCounter();
 };
 
-const template3 = (
-    <div key="template3">
-        <h1>Count: { count }</h1>
-        <button id="btn-add" className="button" onClick = { addOne }>+1</button>
-        <button id="btn-minus" className="button" onClick = { minusOne }>-1</button>
-        <button id="btn-reset" className="button" onClick = { reset }>reset</button>
-    </div>
-);
+const appRoot3 = document.querySelector( '#app3' );
 
-const appRoot = document.querySelector( '#app' );
-ReactDOM.render( [
-    template1,
-    template2,
-    template3
-], appRoot );
+const renderCounter = () => {
+    const template3 = (
+        <div key="template3">
+            <h1>Count: { count }</h1>
+            <button id="btn-add" className="button" onClick = { addOne }>+1</button>
+            <button id="btn-minus" className="button" onClick = { minusOne }>-1</button>
+            <button id="btn-reset" className="button" onClick = { reset }>reset</button>
+        </div>
+    );
+    ReactDOM.render( template3, appRoot3 );
+};
+
+renderCounter();

@@ -40,6 +40,8 @@ var template1 = React.createElement(
         )
     )
 );
+var appRoot1 = document.querySelector('#app1');
+ReactDOM.render(template1, appRoot1);
 
 var user = {
     name: 'Jenni',
@@ -70,50 +72,55 @@ var template2 = React.createElement(
     ),
     getLocation(user.location)
 );
+var appRoot2 = document.querySelector('#app2');
+ReactDOM.render(template2, appRoot2);
 
 var count = 0;
-
 var addOne = function addOne() {
     console.log('addOne');
     count++;
-    console.log(count);
+    renderCounter();
 };
 var minusOne = function minusOne() {
     console.log('Minus');
     count--;
-    console.log(count);
+    renderCounter();
 };
 var reset = function reset() {
     console.log('reset');
     count = 0;
-    console.log(count);
+    renderCounter();
 };
 
-var template3 = React.createElement(
-    'div',
-    { key: 'template3' },
-    React.createElement(
-        'h1',
-        null,
-        'Count: ',
-        count
-    ),
-    React.createElement(
-        'button',
-        { id: 'btn-add', className: 'button', onClick: addOne },
-        '+1'
-    ),
-    React.createElement(
-        'button',
-        { id: 'btn-minus', className: 'button', onClick: minusOne },
-        '-1'
-    ),
-    React.createElement(
-        'button',
-        { id: 'btn-reset', className: 'button', onClick: reset },
-        'reset'
-    )
-);
+var appRoot3 = document.querySelector('#app3');
 
-var appRoot = document.querySelector('#app');
-ReactDOM.render([template1, template2, template3], appRoot);
+var renderCounter = function renderCounter() {
+    var template3 = React.createElement(
+        'div',
+        { key: 'template3' },
+        React.createElement(
+            'h1',
+            null,
+            'Count: ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { id: 'btn-add', className: 'button', onClick: addOne },
+            '+1'
+        ),
+        React.createElement(
+            'button',
+            { id: 'btn-minus', className: 'button', onClick: minusOne },
+            '-1'
+        ),
+        React.createElement(
+            'button',
+            { id: 'btn-reset', className: 'button', onClick: reset },
+            'reset'
+        )
+    );
+    ReactDOM.render(template3, appRoot3);
+};
+
+renderCounter();

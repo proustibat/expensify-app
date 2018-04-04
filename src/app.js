@@ -4,14 +4,17 @@ const appRoot = document.querySelector( '#app' );
 
 const appData = {
     title: 'Here is my JSX title',
-    subtitle: 'Here is my subtitle'
+    subtitle: 'Here is my subtitle',
+    options: [ 'one', 'two' ]
 };
+
 
 // JSX - Javascript XML
 const template1 = (
     <div key='template1'>
         <h1>{ appData.title }</h1>
-        <p>{ appData.subtitle }</p>
+        { appData.subtitle && <p>{ appData.subtitle }</p> }
+        <p>{ ( appData.options && appData.options.length > 0 ) ? 'Here are your options' : 'No options' }</p>
         <ol>
             <li>Item one</li>
             <li>Item two</li>
@@ -19,18 +22,29 @@ const template1 = (
     </div>
 );
 
-
 const user = {
     name: 'Jenni',
     age: 32,
     location: 'Paris'
 };
 
+const getLocation = ( location ) => {
+    if ( location ) {
+        return <p>Location: { location }</p>;
+    }
+    else {
+        return undefined;
+    }
+};
+
 const template2 = (
   <div  key='template2'>
-      <h1>{ user.name.toUpperCase() }</h1>
-      <p>Age: { user.age }</p>
-      <p>Location: { user.location }</p>
+      {/*ternary operator*/}
+      <h1>{ user.name ? user.name.toUpperCase() : 'Anonymous' }</h1>
+      {/*logical and operator*/}
+      { ( user.age && user.age >= 18 ) && <p>Age: { user.age }</p> }
+      {/*if statement*/}
+      { getLocation( user.location ) }
   </div>
 );
 

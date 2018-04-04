@@ -6,7 +6,8 @@ var appRoot = document.querySelector('#app');
 
 var appData = {
     title: 'Here is my JSX title',
-    subtitle: 'Here is my subtitle'
+    subtitle: 'Here is my subtitle',
+    options: ['one', 'two']
 };
 
 // JSX - Javascript XML
@@ -18,10 +19,15 @@ var template1 = React.createElement(
         null,
         appData.title
     ),
-    React.createElement(
+    appData.subtitle && React.createElement(
         'p',
         null,
         appData.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        appData.options && appData.options.length > 0 ? 'Here are your options' : 'No options'
     ),
     React.createElement(
         'ol',
@@ -45,26 +51,34 @@ var user = {
     location: 'Paris'
 };
 
+var getLocation = function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location: ',
+            location
+        );
+    } else {
+        return undefined;
+    }
+};
+
 var template2 = React.createElement(
     'div',
     { key: 'template2' },
     React.createElement(
         'h1',
         null,
-        user.name.toUpperCase()
+        user.name ? user.name.toUpperCase() : 'Anonymous'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
         'Age: ',
         user.age
     ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
-    )
+    getLocation(user.location)
 );
 
 ReactDOM.render([template1, template2], appRoot);

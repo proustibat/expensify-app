@@ -52,16 +52,12 @@ var user = {
 };
 
 var getLocation = function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            'p',
-            null,
-            'Location: ',
-            location
-        );
-    } else {
-        return undefined;
-    }
+    return location ? React.createElement(
+        'p',
+        null,
+        'Location: ',
+        location
+    ) : undefined;
 };
 
 var template2 = React.createElement(

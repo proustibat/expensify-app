@@ -28,14 +28,7 @@ const user = {
     location: 'Paris'
 };
 
-const getLocation = ( location ) => {
-    if ( location ) {
-        return <p>Location: { location }</p>;
-    }
-    else {
-        return undefined;
-    }
-};
+const getLocation = location => location ? <p>Location: { location }</p> : undefined;
 
 const template2 = (
   <div  key='template2'>

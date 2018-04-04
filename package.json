@@ -8,6 +8,8 @@
     "babel-preset-react": "6.24.1"
   },
   "scripts": {
-    "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public"
+    "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public",
+    "start:counter": "babel src/playground/counter-example.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public",
+    "start:user": "babel src/playground/user-example.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public"
   }
 }

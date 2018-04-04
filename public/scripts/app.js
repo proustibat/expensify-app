@@ -2,15 +2,11 @@
 
 console.log('App.js is running!');
 
-var appRoot = document.querySelector('#app');
-
 var appData = {
     title: 'Here is my JSX title',
     subtitle: 'Here is my subtitle',
     options: ['one', 'two']
 };
-
-// JSX - Javascript XML
 var template1 = React.createElement(
     'div',
     { key: 'template1' },
@@ -50,7 +46,6 @@ var user = {
     age: 32,
     location: 'Paris'
 };
-
 var getLocation = function getLocation(location) {
     return location ? React.createElement(
         'p',
@@ -59,7 +54,6 @@ var getLocation = function getLocation(location) {
         location
     ) : undefined;
 };
-
 var template2 = React.createElement(
     'div',
     { key: 'template2' },
@@ -77,4 +71,49 @@ var template2 = React.createElement(
     getLocation(user.location)
 );
 
-ReactDOM.render([template1, template2], appRoot);
+var count = 0;
+
+var addOne = function addOne() {
+    console.log('addOne');
+    count++;
+    console.log(count);
+};
+var minusOne = function minusOne() {
+    console.log('Minus');
+    count--;
+    console.log(count);
+};
+var reset = function reset() {
+    console.log('reset');
+    count = 0;
+    console.log(count);
+};
+
+var template3 = React.createElement(
+    'div',
+    { key: 'template3' },
+    React.createElement(
+        'h1',
+        null,
+        'Count: ',
+        count
+    ),
+    React.createElement(
+        'button',
+        { id: 'btn-add', className: 'button', onClick: addOne },
+        '+1'
+    ),
+    React.createElement(
+        'button',
+        { id: 'btn-minus', className: 'button', onClick: minusOne },
+        '-1'
+    ),
+    React.createElement(
+        'button',
+        { id: 'btn-reset', className: 'button', onClick: reset },
+        'reset'
+    )
+);
+
+var appRoot = document.querySelector('#app');
+ReactDOM.render([template1, template2, template3], appRoot);

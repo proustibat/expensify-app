@@ -19,8 +19,6 @@ class IndecisionApp extends React.Component {
 
 class Header extends React.Component {
     render() {
-        console.log('Props', this.props);
-
         return (
           <div>
               <h1>{ this.props.title }</h1>
@@ -45,8 +43,13 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor( props ) {
+        super( props );
+        this.onRemoveAll = this.onRemoveAll.bind( this );
+    }
+
     onRemoveAll() {
-        console.log('RemoveAll');
+        console.log( this.props.options );
     }
 
     render() {

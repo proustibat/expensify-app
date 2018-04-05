@@ -1,3 +1,17 @@
+
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+            <div>
+                <Header />
+                <Action />
+                <Options />
+                <AddOptions />
+            </div>
+        );
+    }
+}
+
 class Header extends React.Component {
     render() {
         return (
@@ -26,10 +40,19 @@ class Options extends React.Component {
                 <p>'Here are your options' / No options'</p>
                 <button>Remove All</button>
                 <ol>
-                    <li>item one</li>
-                    <li>item two</li>
+                    <Option />
+                    <Option />
+                    <Option />
                 </ol>
             </div>
+        );
+    }
+}
+
+class Option extends React.Component {
+    render() {
+        return (
+            <li>item option</li>
         );
     }
 }
@@ -47,15 +70,4 @@ class AddOptions extends React.Component {
     }
 }
 
-
-
-const jsx = (
-    <div>
-        <Header />
-        <Action />
-        <Options />
-        <AddOptions />
-    </div>
-);
-
-ReactDOM.render( jsx, document.querySelector( '#app' ) );
+ReactDOM.render( <IndecisionApp />, document.querySelector( '#app' ) );

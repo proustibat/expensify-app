@@ -20,12 +20,17 @@ var IndecisionApp = function (_React$Component) {
     _createClass(IndecisionApp, [{
         key: "render",
         value: function render() {
+
+            var title = "Indecision App";
+            var subTitle = "Don't choose by yourself, let the app makes it for you!";
+            var options = ["Item one", "Item Two"];
+
             return React.createElement(
                 "div",
                 null,
-                React.createElement(Header, null),
+                React.createElement(Header, { title: title, subTitle: subTitle }),
                 React.createElement(Action, null),
-                React.createElement(Options, null),
+                React.createElement(Options, { options: options }),
                 React.createElement(AddOptions, null)
             );
         }
@@ -46,18 +51,20 @@ var Header = function (_React$Component2) {
     _createClass(Header, [{
         key: "render",
         value: function render() {
+            console.log('Props', this.props);
+
             return React.createElement(
                 "div",
                 null,
                 React.createElement(
                     "h1",
                     null,
-                    "Indecision App"
+                    this.props.title
                 ),
                 React.createElement(
                     "h2",
                     null,
-                    "Don't choose by yourself, let the app make it for you!"
+                    this.props.subTitle
                 )
             );
         }
@@ -114,6 +121,12 @@ var Options = function (_React$Component4) {
                     "'Here are your options' / No options'"
                 ),
                 React.createElement(
+                    "p",
+                    null,
+                    "Length: ",
+                    this.props.options.length
+                ),
+                React.createElement(
                     "button",
                     null,
                     "Remove All"
@@ -121,9 +134,9 @@ var Options = function (_React$Component4) {
                 React.createElement(
                     "ol",
                     null,
-                    React.createElement(Option, null),
-                    React.createElement(Option, null),
-                    React.createElement(Option, null)
+                    this.props.options.map(function (value, i) {
+                        return React.createElement(Option, { key: i, value: value });
+                    })
                 )
             );
         }
@@ -147,7 +160,7 @@ var Option = function (_React$Component5) {
             return React.createElement(
                 "li",
                 null,
-                "item option"
+                this.props.value
             );
         }
     }]);

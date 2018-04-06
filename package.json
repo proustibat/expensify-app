@@ -4,14 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "babel-cli": "6.24.1",
     "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1"
+    "babel-preset-react": "6.24.1",
+    "live-server": "^1.2.0"
   },
   "scripts": {
-    "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public",
-    "start:counter": "babel src/playground/counter-example.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public",
-    "start:user": "babel src/playground/user-example.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public",
-    "start:visible": "babel src/playground/built-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public",
-    "start:jsx-indecision": "babel src/playground/jsx-indecision.js --out-file=public/scripts/app.js --presets=env,react --watch & live-server public"
+    "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
+    "serve": "live-server public/",
+    "build": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react",
+    "start:counter": "babel src/playground/counter-example.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
+    "start:user": "babel src/playground/user-example.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
+    "start:visible": "babel src/playground/built-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
+    "start:jsx-indecision": "babel src/playground/jsx-indecision.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve"
   }
 }

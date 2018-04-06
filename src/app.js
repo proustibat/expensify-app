@@ -92,7 +92,7 @@ IndecisionApp.defaultProps = {
   ]
 };
 
-const Header = ( props ) => {
+const Header = props => {
     return (
         <div>
             { props.title && <h1>{ props.title }</h1> }
@@ -105,7 +105,7 @@ Header.defaultProps = {
     subTitle : "Don't choose by yourself, let the app makes it for you!"
 };
 
-const Action = ( props ) => {
+const Action = props => {
     return (
         <div>
             <button
@@ -117,7 +117,7 @@ const Action = ( props ) => {
     );
 };
 
-const Options = ( props ) => {
+const Options = props => {
     return (
         <div>
             <button onClick={ props.handleDeleteOptions }>Remove All</button>
@@ -135,7 +135,7 @@ const Options = ( props ) => {
     );
 };
 
-const Option = ( props ) => {
+const Option = props => {
     return (
         <li>
             <p>

@@ -30,12 +30,27 @@ var IndecisionApp = function (_React$Component) {
     _createClass(IndecisionApp, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log('IndecisionApp::componentDidMount');
+            // fetching data
+            try {
+                var json = localStorage.getItem('options');
+                var options = JSON.parse(json);
+                if (options) {
+                    this.setState(function () {
+                        return { options: options };
+                    });
+                }
+            } catch (e) {
+                // Do nothing
+            }
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(previousProps, previousState) {
-            console.log('IndecisionApp::componentDidUpdate');
+            // saving data
+            if (previousState.options.length !== this.state.options.length) {
+                var json = JSON.stringify(this.state.options);
+                localStorage.setItem("options", json);
+            }
         }
     }, {
         key: 'componentWillUnmount',
@@ -126,7 +141,7 @@ var Header = function Header(props) {
 };
 Header.defaultProps = {
     title: "Indecision App",
-    subTitle: "Bla bli blou"
+    subTitle: "Don't choose by yourself, let the app makes it for you!"
 };
 
 var Action = function Action(props) {
@@ -149,14 +164,14 @@ var Options = function Options(props) {
         'div',
         null,
         React.createElement(
-            'p',
-            null,
-            '\'Here are your options\' / No options\''
-        ),
-        React.createElement(
             'button',
             { onClick: props.handleDeleteOptions },
             'Remove All'
+        ),
+        props.options.length === 0 && React.createElement(
+            'p',
+            null,
+            'Please add an option to get started!'
         ),
         React.createElement(
             'ol',

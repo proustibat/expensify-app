@@ -15,11 +15,25 @@ class IndecisionApp extends React.Component {
     }
 
     componentDidMount() {
-        console.log( 'IndecisionApp::componentDidMount' );
+        // fetching data
+        try {
+            const json = localStorage.getItem( 'options' );
+            const options = JSON.parse( json );
+            if( options ) {
+                this.setState( () => ( { options } ) );
+            }
+        }
+        catch( e ) {
+            // Do nothing
+        }
     }
 
     componentDidUpdate( previousProps, previousState ) {
-        console.log( 'IndecisionApp::componentDidUpdate' );
+        // saving data
+        if ( previousState.options.length !== this.state.options.length ) {
+            const json = JSON.stringify( this.state.options );
+            localStorage.setItem( "options", json );
+        }
     }
 
     componentWillUnmount() {
@@ -88,7 +102,7 @@ const Header = ( props ) => {
 };
 Header.defaultProps = {
     title : "Indecision App",
-    subTitle : "Bla bli blou"
+    subTitle : "Don't choose by yourself, let the app makes it for you!"
 };
 
 const Action = ( props ) => {
@@ -106,8 +120,8 @@ const Action = ( props ) => {
 const Options = ( props ) => {
     return (
         <div>
-            <p>'Here are your options' / No options'</p>
             <button onClick={ props.handleDeleteOptions }>Remove All</button>
+            { props.options.length === 0 && <p>Please add an option to get started!</p> }
             <ol>
                 { props.options.map( ( value, i ) => (
                     <Option

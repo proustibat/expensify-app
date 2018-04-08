@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/j.proust/.nvm/versions/node/v9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js start
+  /Users/j.proust/.nvm/versions/node/v9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js remove react-modal@2.2.0
 
 PATH: 
   /Users/j.proust/.nvm/versions/node/v9.10.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -29,6 +29,7 @@ npm manifest:
       "live-server": "^1.2.0",
       "react": "16.0.0",
       "react-dom": "16.0.0",
+      "react-modal": "2.2.0",
       "validator": "^9.4.1",
       "webpack": "3.1.0",
       "webpack-dev-server": "2.5.1"
@@ -1540,6 +1541,10 @@ Lockfile:
     version "1.3.42"
     resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.42.tgz#95c33bf01d0cc405556aec899fe61fd4d76ea0f9"
   
+  element-class@^0.2.0:
+    version "0.2.2"
+    resolved "https://registry.yarnpkg.com/element-class/-/element-class-0.2.2.tgz#9d3bbd0767f9013ef8e1c8ebe722c1402a60050e"
+  
   elliptic@^6.0.0:
     version "6.4.0"
     resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.4.0.tgz#cac9af8762c85836187003c8dfe193e5e2eae5df"
@@ -1714,6 +1719,10 @@ Lockfile:
     dependencies:
       md5.js "^1.3.4"
       safe-buffer "^5.1.1"
+  
+  exenv@1.2.0:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.0.tgz#3835f127abf075bfe082d0aed4484057c78e3c89"
   
   expand-brackets@^0.1.4:
     version "0.1.5"
@@ -3282,7 +3291,7 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.6.0:
+  prop-types@^15.5.10, prop-types@^15.6.0:
     version "15.6.1"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
     dependencies:
@@ -3389,6 +3398,10 @@ Lockfile:
       minimist "^1.2.0"
       strip-json-comments "~2.0.1"
   
+  react-dom-factories@^1.0.0:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.2.tgz#eb7705c4db36fb501b3aa38ff759616aa0ff96e0"
+  
   react-dom@16.0.0:
     version "16.0.0"
     resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
@@ -3397,6 +3410,15 @@ Lockfile:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
       prop-types "^15.6.0"
+  
+  react-modal@2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-2.2.0.tgz#9c29e3ecd54d03ebb5a0b8e7e6769fbe6324beb4"
+    dependencies:
+      element-class "^0.2.0"
+      exenv "1.2.0"
+      prop-types "^15.5.10"
+      react-dom-factories "^1.0.0"
   
   react@16.0.0:
     version "16.0.0"
@@ -4378,14 +4400,10 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "start" not found.
+  Error: This module isn't specified in a manifest.
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:60445:15)
       at Generator.next (<anonymous>)
       at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:23451:28)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12
-      at runCommand (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87312:22)
-      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87412:14)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:109:13
+      at <anonymous>

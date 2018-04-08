@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const template = React.createElement('p', {}, 'testing');
+const template = <p>This is jsx from js</p>;
 ReactDOM.render( template, document.querySelector( '#app' ) );
 
 

@@ -13,17 +13,12 @@
     "react": "16.0.0",
     "react-dom": "16.0.0",
     "validator": "^9.4.1",
-    "webpack": "3.1.0"
+    "webpack": "3.1.0",
+    "webpack-dev-server": "2.5.1"
   },
   "scripts": {
-    "start": "webpack --watch & yarn serve",
     "build": "webpack",
-    "start-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
-    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react",
     "serve": "live-server public/",
-    "start:counter": "babel src/playground/counter-example.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
-    "start:user": "babel src/playground/user-example.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
-    "start:visible": "babel src/playground/built-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve",
-    "start:jsx-indecision": "babel src/playground/jsx-indecision.js --out-file=public/scripts/app.js --presets=env,react --watch & yarn serve"
+    "dev-server": "webpack-dev-server"
   }
 }

@@ -1,3 +1,4 @@
+// Add Option Error
 .add-option-error {
   color: $off-white;
   font-style: italic;
@@ -5,18 +6,28 @@
   padding: 0 $m-size;
 }
 
+// Add Option
 .add-option {
   display: flex;
+  flex-direction: column;
   padding: $m-size;
 }
 
 .add-option__input {
   background: $dark-blue;
   border: none;
-  border-bottom: .3rem solid darken($dark-blue, 10%);
   color: $off-white;
+  border-bottom: .3rem solid darken($dark-blue, 10%);
   flex-grow: 1;
-  margin-right: $s-size;
-  outline: none;
+  margin: 0 0 $s-size 0;
   padding: $s-size;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .add-option {
+    flex-direction: row;
+  }
+  .add-option__input {
+    margin: 0 $s-size 0 0;
+  }
 }

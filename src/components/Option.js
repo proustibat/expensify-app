@@ -4,7 +4,10 @@ const Option = props => (
     <li>
         <p>
             { props.value }
-            <button onClick = { e => { props.handleDeleteSingleOption( props.value ) } } >Remove</button>
+            <button
+                className="button button--link"
+                onClick = { e => { props.handleDeleteSingleOption( props.value ) } }
+            >Remove</button>
         </p>
     </li>
 );

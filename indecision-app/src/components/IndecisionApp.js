@@ -97,6 +97,7 @@ class IndecisionApp extends React.Component {
         );
     }
 }
+
 IndecisionApp.defaultProps = {
     options: [
         "Item one",

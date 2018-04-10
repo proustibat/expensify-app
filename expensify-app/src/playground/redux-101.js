@@ -21,14 +21,13 @@ const resetCount = () => ( {
     type: 'RESET'
 } );
 
-// Restructuring data
-// const add = ( data, c ) => data.a + data.b + c;
-// const add = ( { a, b }, c ) => a + b + c;
-// console.log( add( { a: 1, b: 12 }, 7 ) );
 
 
-// Store
-const store = createStore( ( state = { count: 0 }, action ) => {
+// Reducers
+// 1. Reducers are pure functions
+// 2. Never change state or action
+
+const countReducer = ( state = { count: 0 }, action ) => {
     switch ( action.type ) {
         case 'INCREMENT':
             return {
@@ -49,10 +48,17 @@ const store = createStore( ( state = { count: 0 }, action ) => {
         default:
             return state;
     }
-} );
+};
+
+
+
+// Store
+
+const store = createStore( countReducer );
 
 
 // Subscribe / Unsubscribe
+
 const unsubscribe = store.subscribe( ( ) => {
     console.log( store.getState() );
 } );

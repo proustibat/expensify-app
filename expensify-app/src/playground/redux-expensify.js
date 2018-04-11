@@ -181,8 +181,8 @@ const expenseTwo = store.dispatch( addExpense( { description: 'coffea', amount: 
 // store.dispatch( setTextFilter( 'rent' ) );
 // store.dispatch( setTextFilter( '' ) );
 //
-store.dispatch( sortByAmount() ); // filters.sortBy should be amount
-store.dispatch( sortByDate() ); // filters.sortBy should be date
+// store.dispatch( sortByAmount() ); // filters.sortBy should be amount
+// store.dispatch( sortByDate() ); // filters.sortBy should be date
 
 // store.dispatch( setStartDate( 0 ) );
 // store.dispatch( setStartDate() );

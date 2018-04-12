@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditExpensePage = props => {
+const PageEdit = props => {
     return (
         <div>
             Editing { props.match.params.id }
@@ -8,4 +8,4 @@ const EditExpensePage = props => {
     );
 };
 
-export default EditExpensePage;
+export default PageEdit;

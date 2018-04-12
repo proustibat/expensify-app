@@ -9,7 +9,7 @@ const PageAdd = props => (
         <h1>Add Expense</h1>
         <ExpenseForm
             onSubmit = { ( expense ) => {
-                console.log( expense );
+                console.log( 'Added!', expense );
                 props.dispatch( addExpense( expense ) );
                 props.history.push( '/' );
             } }

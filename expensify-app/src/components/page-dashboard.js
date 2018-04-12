@@ -4,8 +4,8 @@ import ExpenseListFilters from "./ExpenseListFilters";
 
 const PageDashboard = () => (
     <div>
-        <ExpenseList />
         <ExpenseListFilters />
+        <ExpenseList />
     </div>
 );
 

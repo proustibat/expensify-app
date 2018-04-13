@@ -12,11 +12,15 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.4",
+    "enzyme": "3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
+    "enzyme-to-json": "3.0.1",
     "jest": "20.0.4",
     "live-server": "^1.2.0",
     "moment": "2.18.1",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
+    "raf": "3.3.2",
     "react": "16.0.0",
     "react-addons-shallow-compare": "15.6.0",
     "react-dates": "12.7.0",
@@ -37,6 +41,6 @@
     "build": "webpack",
     "serve": "live-server public/",
     "dev-server": "webpack-dev-server",
-    "test": "jest"
+    "test": "jest --config=jest.config.json"
   }
 }

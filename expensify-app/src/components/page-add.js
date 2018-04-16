@@ -4,17 +4,30 @@ import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
 import { addExpense } from "../actions/expenses";
 
-const PageAdd = props => (
-    <div>
-        <h1>Add Expense</h1>
-        <ExpenseForm
-            onSubmit = { ( expense ) => {
-                console.log( 'Added!', expense );
-                props.dispatch( addExpense( expense ) );
-                props.history.push( '/' );
-            } }
-        />
-    </div>
-);
 
-export default connect()( PageAdd );
+export class PageAdd extends React.Component {
+
+    onSubmit = expense => {
+        this.props.onSubmit( expense );
+        this.props.history.push( '/' );
+    };
+
+    render() {
+        return (
+            <div>
+                <h1>Add Expense</h1>
+                <ExpenseForm
+                    onSubmit = { this.onSubmit }
+                />
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = undefined;
+
+const mapDispatchToProps = dispatch => ( {
+    onSubmit: ( expense ) => dispatch( addExpense( expense ) )
+} );
+
+export default connect( mapStateToProps, mapDispatchToProps )( PageAdd );

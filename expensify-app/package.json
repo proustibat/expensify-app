@@ -38,7 +38,8 @@
     "webpack-dev-server": "2.5.1"
   },
   "scripts": {
-    "build": "webpack",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p  --env production",
     "serve": "live-server public/",
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json"

@@ -47,5 +47,8 @@
     "test": "jest --config=jest.config.json",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod"
+  },
+  "engines": {
+    "node": "9.10.1"
   }
 }

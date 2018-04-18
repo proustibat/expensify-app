@@ -5,7 +5,7 @@ import PageAdd from "../components/page-add";
 import PageEdit from "../components/page-edit";
 import PageHelp from "../components/page-help";
 import Page404 from "../components/page-404";
-import Header from "../components/Header";
+import Header from "../components/header";
 
 const AppRouter = () => (
     <BrowserRouter>

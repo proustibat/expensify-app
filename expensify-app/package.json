@@ -50,6 +50,7 @@
     "heroku:push": "cd .. && git subtree push --prefix expensify-app heroku master && cd expensify-app && heroku open"
   },
   "engines": {
-    "node": "9.10.1"
+    "node": "9.10.1",
+    "yarn": "1.5.1"
   }
 }

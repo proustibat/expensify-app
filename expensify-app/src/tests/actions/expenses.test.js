@@ -5,7 +5,8 @@ import {
     removeExpense,
     setExpenses,
     startSetExpenses,
-    startRemoveExpense
+    startRemoveExpense,
+    startEditExpense
 } from "../../actions/expenses";
 import expenses from '../fixtures/expenses';
 import configureMockStore from "redux-mock-store";
@@ -46,6 +47,7 @@ test( 'Should remove expense from firebase', async() => {
     } );
 } );
 
+
 test( 'Should set up edit expense action object', () => {
     const action = editExpense( '123abc', {
         note: 'new note value'
@@ -58,6 +60,25 @@ test( 'Should set up edit expense action object', () => {
             note: 'new note value'
         }
     } )
+} );
+
+test( 'Should edit expense from firebase', async() => {
+    const store = createMockStore( {} );
+    const id = expenses[ 0 ].id;
+    const updates = { amount: 999 };
+    await store.dispatch( startEditExpense( id, updates ) );
+    const actions = store.getActions();
+
+    expect( actions[ 0 ] ).toEqual( {
+        type: 'EDIT_EXPENSE',
+        id,
+        updates
+    } );
+
+    return database.ref( `expenses/${ id }` ).once( 'value' ).then( snapshot => {
+        expect( snapshot.val().amount ).toBe( updates.amount );
+    } );
+
 } );
 
 

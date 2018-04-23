@@ -6,6 +6,7 @@ import PageEdit from "../components/page-edit";
 import PageHelp from "../components/page-help";
 import Page404 from "../components/page-404";
 import Header from "../components/header";
+import LoginPage from "../components/LoginPage";
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -15,6 +16,10 @@ const AppRouter = () => (
                 <Route
                     exact = { true }
                     path = "/"
+                    component = { LoginPage }
+                />
+                <Route
+                    path = "/dashboard"
                     component = { PageDashboard }
                 />
                 <Route

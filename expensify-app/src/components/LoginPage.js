@@ -2,21 +2,12 @@ import React from "react";
 import { connect } from 'react-redux';
 import { startLogin } from "../actions/auth";
 
-export class LoginPage extends React.Component {
-
-    onClickLogin = e => {
-        this.props.startLogin();
-    };
-
-    render() {
-        return (
-            <div>
-                <h1>LoginPage</h1>
-                <button onClick={ this.onClickLogin }>Login</button>
-            </div>
-        );
-    }
-}
+export const LoginPage = props => (
+    <div>
+        <h1>LoginPage</h1>
+        <button onClick={ props.startLogin }>Login</button>
+    </div>
+);
 
 const mapStateToProps = undefined;
 

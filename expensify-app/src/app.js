@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from "react-redux";
 
-import AppRouter from './routers/AppRouter';
+import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
 
@@ -22,13 +22,30 @@ const jsx = (
     </Provider>
 );
 
+let hasRendered = false;
+const renderApp = () => {
+    if ( !hasRendered ) {
+        ReactDOM.render( jsx, document.querySelector( '#app' ) );
+        hasRendered = true;
+    }
+};
+
 ReactDOM.render( <p>Loading...</p>, document.querySelector( '#app' ) );
 
-store.dispatch( startSetExpenses() ).then( () => {
-    ReactDOM.render( jsx, document.querySelector( '#app' ) );
-} );
-
 firebase.auth().onAuthStateChanged( user => {
-    console.log( user ? 'log in' : 'log out' );
+    if ( user ) {
+        console.log( 'log in' );
+        store.dispatch( startSetExpenses() ).then( () => {
+            renderApp();
+            if ( history.location.pathname === '/' ) {
+                history.push( '/dashboard' )
+            }
+        } );
+    }
+    else {
+        console.log( 'log out' );
+        renderApp();
+        history.push( '/' );
+    }
 } );
 

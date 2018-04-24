@@ -8,6 +8,7 @@ import PageHelp from "../components/page-help";
 import Page404 from "../components/page-404";
 import LoginPage from "../components/LoginPage";
 import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 
@@ -15,7 +16,7 @@ const AppRouter = () => (
     <Router history={ history }>
         <div>
             <Switch>
-                <Route
+                <PublicRoute
                     exact = { true }
                     path = "/"
                     component = { LoginPage }

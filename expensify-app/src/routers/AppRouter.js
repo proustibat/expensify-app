@@ -6,30 +6,29 @@ import PageAdd from "../components/page-add";
 import PageEdit from "../components/page-edit";
 import PageHelp from "../components/page-help";
 import Page404 from "../components/page-404";
-import Header from "../components/Header";
 import LoginPage from "../components/LoginPage";
+import PrivateRoute from './PrivateRoute';
 
 export const history = createHistory();
 
 const AppRouter = () => (
     <Router history={ history }>
         <div>
-            <Header />
             <Switch>
                 <Route
                     exact = { true }
                     path = "/"
                     component = { LoginPage }
                 />
-                <Route
+                <PrivateRoute
                     path = "/dashboard"
                     component = { PageDashboard }
                 />
-                <Route
+                <PrivateRoute
                     path = "/create"
                     component = { PageAdd }
                 />
-                <Route
+                <PrivateRoute
                     path = "/edit/:id"
                     component = { PageEdit }
                 />

@@ -31,6 +31,8 @@ const renderApp = () => {
 
 ReactDOM.render( <p>Loading...</p>, document.querySelector( '#app' ) );
 
+
+// When the page first loads or when status changes
 firebase.auth().onAuthStateChanged( user => {
     if ( user ) {
         console.log( 'uid', user.uid );

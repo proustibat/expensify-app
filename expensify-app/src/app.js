@@ -34,24 +34,24 @@ ReactDOM.render( <LoadingPage />, document.querySelector( '#app' ) );
 
 
 // When the page first loads or when status changes
-// firebase.auth().onAuthStateChanged( user => {
-//     if ( user ) {
-//         console.log( 'uid', user.uid );
-//
-//         store.dispatch( login( user.uid ) );
-//
-//         store.dispatch( startSetExpenses() ).then( () => {
-//             renderApp();
-//             if ( history.location.pathname === '/' ) {
-//                 history.push( '/dashboard' )
-//             }
-//         } );
-//     }
-//     else {
-//         console.log( 'log out' );
-//         store.dispatch( logout() );
-//         renderApp();
-//         history.push( '/' );
-//     }
-// } );
+firebase.auth().onAuthStateChanged( user => {
+    if ( user ) {
+        console.log( 'uid', user.uid );
+
+        store.dispatch( login( user.uid ) );
+
+        store.dispatch( startSetExpenses() ).then( () => {
+            renderApp();
+            if ( history.location.pathname === '/' ) {
+                history.push( '/dashboard' )
+            }
+        } );
+    }
+    else {
+        console.log( 'log out' );
+        store.dispatch( logout() );
+        renderApp();
+        history.push( '/' );
+    }
+} );
 

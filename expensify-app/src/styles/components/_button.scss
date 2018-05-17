@@ -16,3 +16,20 @@
 .button--secondary {
   background: #888;
 }
+.button--valid {
+  background: #22881b;
+}
+
+.button--cancel {
+  background: #b43b30;
+}
+
+.button-container--space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-container--center {
+  display: flex;
+  justify-content: center;
+}

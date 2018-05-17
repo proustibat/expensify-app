@@ -37,5 +37,12 @@ exports[`Should render edit expense page correctly 1`] = `
       Remove Expense
     </button>
   </div>
+  <ConfirmModal
+    body="Are you sure?"
+    cancelText="No"
+    confirmText="Yes"
+    handleCloseModal={[Function]}
+    showModal={false}
+  />
 </div>
 `;

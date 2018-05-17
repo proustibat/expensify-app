@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render the confirm modal correctly 1`] = `
+<Modal
+  ariaHideApp={true}
+  bodyOpenClassName="ReactModal__Body--open"
+  closeTimeoutMS={0}
+  contentLabel="Confirm choice modal"
+  isOpen={true}
+  onRequestClose={[Function]}
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+  style={
+    Object {
+      "content": Object {
+        "bottom": "auto",
+        "left": "50%",
+        "marginRight": "-50%",
+        "right": "auto",
+        "top": "50%",
+        "transform": "translate(-50%, -50%)",
+      },
+    }
+  }
+>
+  <p>
+    my tst body
+  </p>
+  <div
+    className="button-container--space-around"
+  >
+    <button
+      className="button button--cancel"
+      onClick={[Function]}
+    >
+      cancel text
+    </button>
+    <button
+      className="button button--valid"
+      onClick={[Function]}
+    >
+      confirm text
+    </button>
+  </div>
+</Modal>
+`;

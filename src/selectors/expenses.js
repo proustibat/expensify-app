@@ -20,4 +20,12 @@ const getVisibleExpenses =  ( expenses, { text, sortBy, startDate, endDate } ) =
         } );
 };
 
-export default getVisibleExpenses;
+const getHiddenExpenses =  ( expenses, { text, sortBy, startDate, endDate } ) => {
+    const visibleExpensesIds = getVisibleExpenses( expenses, { text, sortBy, startDate, endDate } ).map( e => e.id );
+    return expenses.filter( e => !visibleExpensesIds.includes( e.id ) ) ;
+};
+
+export {
+    getVisibleExpenses,
+    getHiddenExpenses
+};

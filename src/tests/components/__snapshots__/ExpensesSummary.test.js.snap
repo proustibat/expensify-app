@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render correctly with only one expenses 1`] = `
+exports[`Should render correctly several hidden expenses and several visible expenses 1`] = `
 <div
   className="page-header"
 >
@@ -12,13 +12,76 @@ exports[`Should render correctly with only one expenses 1`] = `
     >
       Viewing 
       <span>
-        1
+        15
+      </span>
+      <em>
+        /
+        30
+      </em>
+       expense
+      s 
+      totalling 
+      <span>
+        $1.50
+      </span>
+      <em>
+        /
+        $3.00
+      </em>
+    </h1>
+    <p
+      className="page-header__subtitle"
+    >
+      <span>
+        15
       </span>
        expense
-       totalling 
+      s
+       hidden, totalling 
       <span>
-        $9.99
+        $1.50
       </span>
+    </p>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should render correctly with no hidden expense 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span />
+      <em>
+        /
+      </em>
+       expense
+       
+      totalling 
+      <span>
+        $0.00
+      </span>
+      <em>
+        /
+        $0.00
+      </em>
     </h1>
     <div
       className="page-header__actions"
@@ -35,7 +98,200 @@ exports[`Should render correctly with only one expenses 1`] = `
 </div>
 `;
 
-exports[`Should render correctly with several expenses 1`] = `
+exports[`Should render correctly with one hidden expense 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span />
+      <em>
+        /
+      </em>
+       expense
+       
+      totalling 
+      <span>
+        $0.00
+      </span>
+      <em>
+        /
+        $0.00
+      </em>
+    </h1>
+    <p
+      className="page-header__subtitle"
+    >
+      <span>
+        1
+      </span>
+       expense
+       hidden, totalling 
+      <span>
+        $0.10
+      </span>
+    </p>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should render correctly with only no visible expense 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        0
+      </span>
+      <em>
+        /
+      </em>
+       expense
+       
+      totalling 
+      <span>
+        $0.00
+      </span>
+      <em>
+        /
+        $0.00
+      </em>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should render correctly with only one visible expense 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        1
+      </span>
+      <em>
+        /
+      </em>
+       expense
+       
+      totalling 
+      <span>
+        $9.99
+      </span>
+      <em>
+        /
+        $0.00
+      </em>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should render correctly with several hidden expenses 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span />
+      <em>
+        /
+      </em>
+       expense
+       
+      totalling 
+      <span>
+        $0.00
+      </span>
+      <em>
+        /
+        $0.00
+      </em>
+    </h1>
+    <p
+      className="page-header__subtitle"
+    >
+      <span>
+        3
+      </span>
+       expense
+      s
+       hidden, totalling 
+      <span>
+        $9.99
+      </span>
+    </p>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should render correctly with several visible expenses 1`] = `
 <div
   className="page-header"
 >
@@ -49,12 +305,19 @@ exports[`Should render correctly with several expenses 1`] = `
       <span>
         3
       </span>
+      <em>
+        /
+      </em>
        expense
-      s
-       totalling 
+      s 
+      totalling 
       <span>
         $9.99
       </span>
+      <em>
+        /
+        $0.00
+      </em>
     </h1>
     <div
       className="page-header__actions"

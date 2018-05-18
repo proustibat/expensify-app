@@ -14,4 +14,15 @@
   span {
     font-weight: 700; // bold
   }
+  em {
+    font-size: $s-size;
+  }
+}
+
+.page-header__subtitle {
+  font-size: $s-size;
+  margin: 0;
+  span {
+    font-weight: 700; // bold
+  }
 }

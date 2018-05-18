@@ -101,7 +101,12 @@ yarn test
 ```
 You could also watch tests while you're working:
 ```
-yarn test -- --watch
+yarn test:watch
+```
+
+Generate coverage
+```
+yarn test:coverage
 ```
 
 ### Coding style tests

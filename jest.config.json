@@ -5,5 +5,9 @@
   ],
   "snapshotSerializers": [
     "enzyme-to-json/serializer"
+  ],
+  "coverageReporters": [
+    "html",
+    "lcov"
   ]
 }

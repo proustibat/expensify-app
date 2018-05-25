@@ -6,3 +6,4 @@ public/dist
 .env.development
 ngrok
 coverage
+styleguide

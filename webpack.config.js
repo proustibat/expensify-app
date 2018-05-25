@@ -2,10 +2,11 @@ const path = require( 'path' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const webpack = require( 'webpack' );
 const dotenv = require( 'dotenv' );
+const merge = require( 'webpack-merge' );
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-if ( process.env.NODE_ENV === 'test' ) {
+if ( process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'styleguidist' ) {
     dotenv.config( {
         path: '.env.test'
     } );
@@ -17,11 +18,13 @@ else if ( process.env.NODE_ENV === 'development' ) {
 }
 
 module.exports = ( env ) => {
-
     const isProduction = env === 'production';
     const CSSExtract = new ExtractTextPlugin( 'styles.css' );
 
-    return {
+    console.log( 'process.env.NODE_ENV ', process.env.NODE_ENV );
+    console.log( 'process.env.isProduction ', isProduction );
+
+    const config = {
         entry: [
             'babel-polyfill',
             './src/app.js'
@@ -39,22 +42,23 @@ module.exports = ( env ) => {
                 exclude: /node_modules/
             }, {
                 test: /\.(s*)css$/,
-                use: CSSExtract.extract( {
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }
-                    ]
-                } )
+                loader: 'css-loader!sass-loader?modules&importLoaders=1',
+                // use: CSSExtract.extract( {
+                //     use: [
+                //         {
+                //             loader: 'css-loader',
+                //             options: {
+                //                 sourceMap: true
+                //             }
+                //         },
+                //         {
+                //             loader: 'sass-loader',
+                //             options: {
+                //                 sourceMap: true
+                //             }
+                //         }
+                //     ]
+                // } )
             } ]
         },
 
@@ -72,10 +76,18 @@ module.exports = ( env ) => {
 
         devtool: isProduction ? 'source-map' : 'inline-source-map',
 
-        devServer: {
-            contentBase: path.join( __dirname, 'public' ),
-            publicPath: '/dist/',
-            historyApiFallback: true
-        }
+    };
+
+    if ( process.env.NODE_ENV !== 'styleguidist' ) {
+        return merge( config, {
+            devServer: {
+                contentBase: path.join( __dirname, 'public' ),
+                publicPath: '/dist/',
+                historyApiFallback: true
+            },
+        } );
+    }
+    else {
+        return config;
     }
 };

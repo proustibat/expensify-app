@@ -10,6 +10,9 @@ module.exports = {
     },
     styleguideComponents: {
         Wrapper: path.join(__dirname, 'lib/styleguide/Wrapper.js')
+    },
+    getExampleFilename(componentPath) {
+        return componentPath.replace(/\.js?$/, '.examples.md')
     }
     // webpackConfig: function(env) {
     //     const CSSExtract = new ExtractTextPlugin( 'styles.css' );
